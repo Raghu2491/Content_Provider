@@ -11,6 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 public class UsersProvider extends ContentProvider {
 
@@ -103,6 +104,7 @@ public class UsersProvider extends ContentProvider {
     @Override
     public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
         int count=0;
+        Log.d(getClass().getName(), "updateCalled");
         count=db.update(TABLE_NAME,values,selection,selectionArgs);
         getContext().getContentResolver().notifyChange(uri,null);
         return count;    }
