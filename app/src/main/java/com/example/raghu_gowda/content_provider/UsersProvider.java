@@ -104,7 +104,6 @@ public class UsersProvider extends ContentProvider {
     @Override
     public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
         int count=0;
-        Log.d(getClass().getName(), "updateCalled");
         count=db.update(TABLE_NAME,values,selection,selectionArgs);
         getContext().getContentResolver().notifyChange(uri,null);
         return count;    }
